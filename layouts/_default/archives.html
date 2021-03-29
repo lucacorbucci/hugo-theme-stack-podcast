@@ -30,4 +30,9 @@
     {{ end }}
 
     {{ partialCached "footer/footer" . }}
+
+    <!-- TO-DO: Remove this. Just for testing. -->
+    {{ range $.Site.Data.guests }}
+    {{ partial "guests.html" . }}
+    {{ end }}
 {{ end }}
