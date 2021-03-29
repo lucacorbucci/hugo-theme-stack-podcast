@@ -8,4 +8,11 @@ license:
 hidden: false
 comments: true
 draft: true
+
+author: 
+episode: 
+podcast:
+title:
+type:
+summary:
 ---

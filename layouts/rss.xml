@@ -1,42 +1,40 @@
-{{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-{{- $notHidden := where .Site.RegularPages "Params.hidden" "!=" true -}}
-{{- $filtered := ($pages | intersect $notHidden) -}}
-{{- $limit := .Site.Config.Services.RSS.Limit -}}
-{{- if ge $limit 1 -}}
-{{- $filtered = $filtered | first $limit -}}
-{{- end -}}
-{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/">
+
     <channel>
-        <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+        <title type="html">{{ .Site.Params.podcast.podcastTitle }}</title>
+        <atom:link href="{{ .Site.Params.url }}{{ .Site.Params.podcast.rssLink }}" rel="self" type="application/rss+xml" />
         <link>{{ .Permalink }}</link>
-        <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
-        <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
-        <language>{{.}}</language>{{end}}{{ with .Site.Author.email }}
-        <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Author.email }}
-        <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}{{ with .Site.Copyright }}
-        <copyright>{{.}}</copyright>{{end}}{{ if not .Date.IsZero }}
-        <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
-        {{- with .OutputFormats.Get "RSS" -}}
-        {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
-        {{- end -}}
-        {{ range $filtered }}
-        {{- $content := safeHTML (.Summary | html) -}}
-        {{- if .Site.Params.rssFullContent -}}
-            {{- $content = safeHTML (.Content | html) -}}
-        {{- end -}}
+        <description>{{ .Site.Params.podcast.podcastDescription }}</description>
+        <itunes:summary>{{ .Site.Params.podcastv.podcastSummary }}</itunes:summary>
+        <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
+
+        <itunes:image href="{{ .Site.Params.podcast.podcast_image }}" />
+        <itunes:owner>
+            <itunes:name>{{ .Site.Params.podcast.podcastAuthor }}</itunes:name>
+            <itunes:email>{{ .Site.Params.podcast.podcastEmail }}</itunes:email>
+        </itunes:owner>
+        <managingEditor>{{ .Site.Params.podcast.podcastEmail }} ({{ .Site.Params.podcast.podcastAuthor }})</managingEditor>
+        <itunes:subtitle>{{ .Site.Params.podcast.PodcastSubtitle }}</itunes:subtitle>
+        <image>
+            <title>{{ .Site.Params.podcast.podcastTitle }}</title>
+            <url>{{ .Site.Params.url }}{{ .Site.Params.podcast.podcastTitle }}</url>
+            <link>{{ .Site.Params.url }}</link>
+        </image>
+        <itunes:category text="{{ .Site.Params.podcast.itunesCategory1 }}" />
+        <itunes:category text="{{ .Site.Params.podcast.itunesCategory2 }}" />
+        <itunes:category text="{{ .Site.Params.podcast.itunesCategory3 }}" />
+        {{ range first 100 .Site.Pages }}
+        
+            {{ if eq .Type "episode"}}
         <item>
-        <title>{{ .Title }}</title>
-        <link>{{ .Permalink }}</link>
-        <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-        {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
-        <guid>{{ .Permalink }}</guid>
-        <description>
-            {{- $image := partial "helper/image" (dict "Context" . "Type" "rss") -}}
-            {{- if $image.exists -}}
-                {{ "<" | html }}img src="{{ $image.permalink | absURL }}" alt="Featured image of post {{ .Title }}" {{ "/>" | html}}
-            {{- end -}}{{ $content }}</description>
+            <title>{{ title .Title }}</title>
+            <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
+            <description>{{ .Content | html }}</description>
+            <enclosure url="{{ .Params.podcast }}" length="" type="audio/mpeg"></enclosure>
         </item>
         {{ end }}
+
+    {{ end }}
     </channel>
+
 </rss>

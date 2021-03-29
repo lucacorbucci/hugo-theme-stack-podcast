@@ -1,4 +1,4 @@
-baseurl = "https://example.com"
+baseurl = "http://192.168.1.157:1313"
 languageCode = "en-us"
 theme = "hugo-theme-stack-podcast"
 paginate = 5.0
@@ -15,6 +15,25 @@ mainSections = [
 ]
 featuredImageField = "image"
 rssFullContent = true
+url = "http://192.168.1.157:1313"
+
+Summary = "A podcast about technology"
+
+
+
+  [params.podcast]
+    podcastTitle = "Example Podcast"
+    podcastDescription = "A podcast about technology"
+    rssLink = "/index.xml"
+    PodcastSubtitle = "Just a simple example site for podcasting"
+    podcastSummary = "Just a simple example site for podcasting"
+    podcastAuthor = "Your Name"
+    podcastEmail = "info@yourpodcast.it"
+    podcast_image = "https://pointerpodcast.it/wp-content/uploads/2020/12/Logo_Podcast.png"
+    itunesCategory1 = "technology"
+    itunesCategory2 = "AI"
+    itunesCategory3 = "News"
+    
 
   [params.footer]
   since = 2020.0
