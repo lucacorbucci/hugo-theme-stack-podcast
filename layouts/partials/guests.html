@@ -1,3 +1,7 @@
-<ul>
-    <li>{{ .Name }} - {{.Description}}</li>
-</ul>
+{{ $image := resources.Get "guest_images/avatar.png" }}
+<a href="/guests/{{ .url }}">
+<figure  style="float: left">
+    <img src="{{ $image.Permalink }}" style="border-radius: 50%;">
+    <figcaption style="text-align: center">{{ .Name }}</figcaption>
+</figure>
+</a>

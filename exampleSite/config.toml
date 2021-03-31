@@ -3,11 +3,13 @@ languageCode = "en-us"
 theme = "hugo-theme-stack-podcast"
 paginate = 5.0
 title = "My Podcast Website"
-DefaultContentLanguage = "en"
+DefaultContentLaxnguage = "en"
+
 
 [permalinks]
 post = "/p/:slug/"
 page = "/:slug/"
+guests = "/guests/:slug"
 
 [params]
 mainSections = [
@@ -129,3 +131,5 @@ toLower = false
 
   [markup.highlight]
   noClasses = false
+
+  
