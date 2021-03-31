@@ -4,6 +4,7 @@ theme = "hugo-theme-stack-podcast"
 paginate = 5.0
 title = "My Podcast Website"
 DefaultContentLaxnguage = "en"
+assetDir = "static"
 
 
 [permalinks]
