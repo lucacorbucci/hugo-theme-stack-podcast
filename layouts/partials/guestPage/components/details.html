@@ -1,0 +1,126 @@
+<div class="article-details">
+    {{ if .Params.categories }}
+    <header class="article-category">
+        {{ range (.GetTerms "categories") }}
+            <a href="{{ .RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
+                {{ .LinkTitle }}
+            </a>
+        {{ end }}
+    </header>
+    {{ end }}
+    <span>
+          
+    </span>
+
+
+
+    <div id="container">
+
+        {{ $path := (print "guest_images/" .Params.image) }}
+        {{ $image := resources.Get $path}}
+        {{ if $image }}
+        <img src="{{ $image.Permalink }}" align="left" class="avatar"/>
+        {{end}}
+        <div class="table">
+                <h1 class="article-title titleDescription">
+                <a href="{{ .RelPermalink }}">
+                    {{- .Title -}}
+                </a>
+                </h1>
+                
+                <div style="padding-bottom: 20px; padding-top: 10px;">
+                    
+                    {{ if .Params.website }}
+                    {{ $image := resources.Get "social_icons/website.svg" }}
+                    <a href="{{ .Params.website }}">
+                        <img href="http://google.com" src="{{ $image.Permalink }}" style="width: 30px; height: 30px; margin-right:4px;">
+                    </a>
+                    {{ end }}
+
+                    {{ if .Params.twitter }}
+                    {{ $image := resources.Get "social_icons/twitter.svg" }}
+                    <a href="{{ .Params.twitter }}">
+                        <img src="{{ $image.Permalink }}" style="width: 30px; height: 30px; margin-right:4px;">
+                    </a>
+                    {{ end }}
+
+                    {{ if .Params.github }}
+                    {{ $image := resources.Get "social_icons/github.svg" }}
+                    <a href="{{ .Params.github }}">
+                        <img src="{{ $image.Permalink }}" style="width: 30px; height: 30px; margin-right:4px;">
+                    </a>
+                    {{ end }}
+
+                    {{ if .Params.linkedin }}
+                    {{ $image := resources.Get "social_icons/linkedin.svg" }}
+                    <a href="{{ .Params.linkedin }}">
+                        <img src="{{ $image.Permalink }}" style="width: 30px; height: 30px; margin-right:4px;">
+                    </a>
+                    {{ end }}
+
+                    {{ if .Params.medium }}
+                    {{ $image := resources.Get "social_icons/medium.svg" }}
+                    <a href="{{ .Params.medium }}">
+                        <img src="{{ $image.Permalink }}" style="width: 30px; height: 30px; margin-right:4px;">
+                    </a>
+                    {{ end }}
+
+                    {{ if .Params.instagram }}
+                    {{ $image := resources.Get "social_icons/instagram.svg" }}
+                    <a href="{{ .Params.instagram }}">
+                        <img src="{{ $image.Permalink }}" style="width: 30px; height: 30px; margin-right:4px;">
+                    </a>
+                    {{ end }}
+
+                    {{ if .Params.youtube }}
+                    {{ $image := resources.Get "social_icons/youtube.svg" }}
+                    <a href="{{ .Params.youtube }}">
+                    <img src="{{ $image.Permalink }}" style="width: 30px; height: 30px; margin-right:4px;">
+                    </a>
+                    {{ end }}
+                </div>
+                
+                <a class="titleDescription">{{ .Params.Bio }}</a>
+        </div>
+    </div>
+    <style>
+        .table {
+            display: table;
+            padding-left: 10px;
+        }
+
+        .avatar {
+            border-radius: 50%;
+        }
+
+        
+        img {
+            display: inline;
+            width: 150px;
+            height: 150px;
+        }
+      
+        
+    </style>
+    
+    <div >
+        <h3>{{ .Title }} was a guest in the following episodes:</h3>
+        <ul>
+        {{ if .Params.episodes }}
+            {{ range $key, $value := $.Params.episodes }}
+                <li> <a href="{{ $value }}">{{ $key }}</a></li>
+            {{ end }}
+        {{ end }}
+    </ul>
+    </div>
+
+    {{ with .Params.description }}
+    <h3 class="article-subtitle">
+        {{ . }}
+    </h3>
+    {{ end }}
+
+    
+
+
+</div>

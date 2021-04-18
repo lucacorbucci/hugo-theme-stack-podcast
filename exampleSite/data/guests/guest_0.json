@@ -1,5 +1,6 @@
 {
-   "Name": "User0123",
+   "Name": "Bill Gates",
    "Description": "He is a **jolly good** fellow.",
-   "url": "billgates"
+   "url": "billgates",
+   "img": "bill_gates.jpg"
 }

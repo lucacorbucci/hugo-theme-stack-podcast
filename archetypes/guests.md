@@ -3,4 +3,12 @@ linkedin:
 twitter:
 github:
 website:
+instagram:
+youtube: 
+medium:
+image:
+slug:
+Bio:
+episodes:
+episodeLinks:
 ---

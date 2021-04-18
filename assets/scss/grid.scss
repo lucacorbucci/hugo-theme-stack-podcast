@@ -104,6 +104,15 @@
     }
 }
 
+.main_blue {
+    min-width: 0;
+    padding: 0 15px;
+    max-width: 100%;
+    flex-grow: 1;
+    padding-top: var(--main-top-padding);
+    background-color: lightblue;
+}
+
 main.main {
     min-width: 0;
     padding: 0 15px;

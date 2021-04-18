@@ -8,7 +8,7 @@
         {{- partial "head/colorScheme" . -}}
         <div class="container main-container flex on-phone--column {{ if .Site.Params.widgets.enabled }}extended{{ else }}compact{{ end }} {{ block `container-class` . }}{{end}}">
             {{ partial "sidebar/left.html" . }}
-            <main class="main full-width">
+            <main class="main full-width" >
                 {{- block "main" . }}{{- end }}
             </main>
             {{- block "right-sidebar" . -}}{{ end }}

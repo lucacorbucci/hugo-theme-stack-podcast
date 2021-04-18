@@ -1,0 +1,13 @@
+<div style="background-color: lightblue;">
+    {{ $path := (print "guest_images/" .img) }}
+
+    {{ $image := resources.Get $path}}
+    {{ if $image}}
+    <a href="/guests/{{ .url }}">
+    <figure  style="float: left">
+        <img src="{{ $image.Permalink }}" style="border-radius: 50%; width: 150px; height: 150px;">
+        <figcaption style="text-align: center">{{ .Name }}</figcaption>
+    </figure>
+    </a>
+    {{ end }}
+</div>

@@ -1,0 +1,10 @@
+{{ define "container-class" }}article-page with-toolbar{{ end }}
+{{ define "main" }}
+<article class="{{ if .Params.image }}has-image {{ end }}main-article">
+    
+    {{ range $.Site.Data.guests }}
+    {{ partial "guestList/guestsList.html" . }}
+    {{ end }}
+</article>
+
+{{ end }}
