@@ -1,6 +1,8 @@
 <footer class="article-footer">
     <div>
+    {{ if .Params.guests }}
     <h3> Guests </h3>
+    {{ end }}
     {{ range .Params.guests }}
         {{ range $key, $value := . }}
             {{ $path := (print "guest_images/" $value) }}
