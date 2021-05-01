@@ -30,7 +30,7 @@
             <title>{{ title .Title }}</title>
             <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
             <description>{{ .Content | html }}</description>
-            <enclosure url="{{ .Params.podcast }}" length="" type="audio/mpeg"></enclosure>
+            <enclosure url="{{ .Site.Params.podcast.url }}{{ .Params.podcast }}" length="" type="audio/mpeg"></enclosure>
         </item>
         {{ end }}
 
