@@ -31,10 +31,10 @@
             <title>{{ title .Title }}</title>
             <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
             <description>{{ .Content | html }}</description>
-            <published>{{ .Params.date }}</published>
-            <updated>
-                {{ .Params.date }}
-            </updated>
+            <pubDate>
+                {{ .Params.date.Format "Mon, 02 Jan 2006 00:00:00 +0000" }}
+            </pubDate>
+
             <enclosure url="{{ .Site.Params.podcast.url }}{{ .Params.podcast }}" length="" type="audio/mpeg"></enclosure>
         </item>
         {{ end }}
