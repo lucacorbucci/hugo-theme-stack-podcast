@@ -5,6 +5,7 @@
         <atom:link href="{{ .Site.Params.url }}{{ .Site.Params.podcast.rssLink }}" rel="self" type="application/rss+xml" />
         <link>{{ .Permalink }}</link>
         <description>{{ .Site.Params.podcast.podcastDescription }}</description>
+        <copyright>{{ .Site.Params.podcast.copyright }}</copyright>
         <itunes:summary>{{ .Site.Params.podcastv.podcastSummary }}</itunes:summary>
         <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
 
@@ -30,6 +31,10 @@
             <title>{{ title .Title }}</title>
             <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
             <description>{{ .Content | html }}</description>
+            <published>{{ .Params.date }}</published>
+            <updated>
+                {{ .Params.date }}
+            </updated>
             <enclosure url="{{ .Site.Params.podcast.url }}{{ .Params.podcast }}" length="" type="audio/mpeg"></enclosure>
         </item>
         {{ end }}
