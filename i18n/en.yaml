@@ -1,53 +1,53 @@
 toggleMenu:
-    other: Toggle Menu
+  other: Toggle Menu
 
 darkMode:
-    other: Dark Mode
+  other: Dark Mode
 
 list:
-    page:
-        one: "{{ .Count }} page"
-        other: "{{ .Count }} pages"
+  page:
+    one: "{{ .Count }} page"
+    other: "{{ .Count }} pages"
 
-    section:
-        other: Section
+  section:
+    other: Section
 
-    subsection:
-        one: Subsection
-        other: Subsections
+  subsection:
+    one: Subsection
+    other: Subsections
 
 article:
-    relatedContents:
-        other: Related contents
-    lastUpdatedOn:
-        other: Last updated on
+  relatedContents:
+    other: Related contents
+  lastUpdatedOn:
+    other: Last updated on
 
 notFound:
-    title:
-        other: Not Found
-    subtitle:
-        other: This page does not exist.
+  title:
+    other: Not Found
+  subtitle:
+    other: This page does not exist.
 
 widget:
-    archives:
-        title:
-            other: Archives
-        more:
-            other: More
-    tagCloud:
-        title:
-            other: Tags
+  archives:
+    title:
+      other: Archives
+    more:
+      other: More
+  tagCloud:
+    title:
+      other: Tags
 
 search:
-    title:
-        other: Search
-    placeholder:
-        other: Type something...
-    resultTitle:
-        other: "#PAGES_COUNT pages (#TIME_SECONDS seconds)"
+  title:
+    other: Search
+  placeholder:
+    other: Type something...
+  resultTitle:
+    other: "#PAGES_COUNT pages (#TIME_SECONDS seconds)"
 
 footer:
-    builtWith:
-        other: Built with {{ .Generator }}
-    designedBy:
-        other: Theme {{ .Theme }} designed by {{ .DesignedBy }} and forked by Luca Corbucci
+  builtWith:
+    other: Built with {{ .Generator }}
+  designedBy:
+    other: Theme {{ .Theme }} designed by {{ .DesignedBy }} and forked by Luca Corbucci
