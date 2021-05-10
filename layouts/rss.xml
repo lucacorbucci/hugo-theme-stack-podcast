@@ -8,7 +8,7 @@
         <copyright>{{ .Site.Params.podcast.copyright }}</copyright>
         <itunes:summary>{{ .Site.Params.podcastv.podcastSummary }}</itunes:summary>
         <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
-
+        <guid isPermaLink="false">{{ .Site.Params.podcast.guid }}</guid>
         <itunes:image href="{{ .Site.Params.podcast.podcast_image }}" />
         <itunes:owner>
             <itunes:name>{{ .Site.Params.podcast.podcastAuthor }}</itunes:name>
