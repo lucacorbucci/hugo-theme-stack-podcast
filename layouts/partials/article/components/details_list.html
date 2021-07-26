@@ -24,7 +24,6 @@
 }
 
 
-
 .parent {
   padding: 1rem;
   margin-top: 10px;
@@ -72,7 +71,6 @@
         </div>
         
         
-        
         <div >
         {{- if not .Date.IsZero -}}
           <footer class="article-time">
@@ -84,18 +82,10 @@
         {{- end -}}
         </div>
 
-        <div >
-          {{ with .Params.description }}
-          <h3 class="article-subtitle " >
-            {{ . }}
-          </h3>
-        {{ end }}
-        </div>
-
         <audio class="js-player" style="--plyr-audio-controls-background: rgba(0, 0, 0, 0); --plyr-audio-control-color: #eb277a">
         <source src="https://dts.podtrac.com/redirect.mp3/{{ .Site.Params.podcast.url }}{{ .Params.podcast }}"/>
         </audio>
-      </div>
+  </div>
   
 
       

@@ -8,6 +8,7 @@ license:
 hidden: false
 comments: true
 draft: true
+artwork:
 
 author: 
 episode: 
