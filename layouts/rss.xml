@@ -18,7 +18,7 @@
         <itunes:subtitle>{{ .Site.Params.podcast.PodcastSubtitle }}</itunes:subtitle>
         <image>
             <title>{{ .Site.Params.podcast.podcastTitle }}</title>
-            <url>{{ .Site.Params.url }}{{ .Site.Params.podcast.podcastTitle }}</url>
+            <url>{{ .Site.Params.url }}</url>
             <link>{{ .Site.Params.url }}</link>
         </image>
         <itunes:category text="{{ .Site.Params.podcast.itunesCategory1 }}" />
@@ -37,7 +37,7 @@
                 {{ .Params.date.Format "Mon, 02 Jan 2006  15:04:05 -0700" | safeHTML }}
             </pubDate>
 
-            <enclosure url="https://dts.podtrac.com/redirect.mp3/{{ .Site.Params.podcast.url }}{{ .Params.podcast }}" length="" type="audio/mpeg"></enclosure>
+            <enclosure url="https://dts.podtrac.com/redirect.mp3/{{ .Site.Params.podcast.url_without_http }}{{ .Params.podcast }}" length="" type="audio/mpeg"></enclosure>
         </item>
         {{ end }}
 
