@@ -30,7 +30,7 @@
         <item>
             <title>{{ title .Title }}</title>
             <itunes:author>{{ .Site.Params.podcast.podcastAuthor }}</itunes:author>
-            <description>{{ .Content | html }}</description>
+            <description>{{ .Description }}{{ .Content | html }}</description>
             <id>{{ .Permalink }}</id>
             <guid>{{ .Permalink }}</guid>
             <pubDate>
