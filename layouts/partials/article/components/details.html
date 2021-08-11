@@ -23,8 +23,6 @@
   height: 100%;
 }
 
-
-
 .parent {
   padding: 1rem;
   margin-top: 10px;
@@ -38,17 +36,21 @@
     style: margin-top:7%;
 }
 
-
-
 .float-child-left {
     width: 30%;
     float: left;
 }  
+
 .float-child-right {
     width: 70%;
     float: left;
     padding-left: 4%;
 }  
+
+.inline-block {
+   display: inline-block;
+}
+
 }
 
 </style>
@@ -95,7 +97,27 @@
         <audio class="js-player" style="--plyr-audio-controls-background: rgba(0, 0, 0, 0); --plyr-audio-control-color: #eb277a">
         <source src="{{ .Site.Params.podcast.url }}{{ .Params.podcast }}"/>
         </audio>
+
+        <div class="inline-block">
+          <a href="https://podcasts.apple.com/it/podcast/pointerpodcast/id1465505870">
+              <img src='/images/apple_podcast.svg' style="width:100%; height: auto; ">
+          </a>
+        </div>
+
+        <div class="inline-block">
+          <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9wb2ludGVycG9kY2FzdC5pdC9pbmRleC54bWw">
+              <img src='/images/google_podcast.svg' style="width:100%; height: auto;">
+          </a>
+        </div>
+
+        <div class="inline-block" >
+          <a href="https://open.spotify.com/show/3XmDzcZv4rCIx1VpWrbrkh">
+              <img src='/images/spotify.svg' style="width:100%; height: auto;">
+          </a>
+        </div>
       </div>
+      
+
   
 
       
