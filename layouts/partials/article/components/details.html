@@ -1,5 +1,5 @@
 <script src="/js/plyr.js"></script>
-<script>
+ <script>
       document.addEventListener('DOMContentLoaded', () => {
 
           const controls = [
@@ -40,6 +40,12 @@
     float: left;
 }  
 
+.float-child-left-title {
+    width: 30%;
+    float: left;
+    margin-left: 3%;
+}  
+
 .float-child-right {
     width: 70%;
     float: left;
@@ -54,6 +60,8 @@
 
 </style>
 
+
+{{ if .Params.podcast }}
 <div class="article-details">
   <div >
 
@@ -63,6 +71,9 @@
     </a>
   </div>
   
+ 
+
+
   <div class="float-child-right">
     <div >
           <h2 class="article-title" >
@@ -98,28 +109,46 @@
         </audio>
 
         <div class="inline-block">
-          <a href="https://podcasts.apple.com/it/podcast/pointerpodcast/id1465505870">
+          <a href="{{ .Site.Params.podcast.telegram_group_link }}">
+              <img src='/images/telegram_group.svg' style="width:162px; height: 40px;">
+          </a>
+        </div>
+        <div class="inline-block">
+          <a href="{{ .Site.Params.podcast.apple_podcast_link }}">
               <img src='/images/apple_podcast.svg' style="width:100%; height: auto; ">
           </a>
         </div>
 
         <div class="inline-block">
-          <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9wb2ludGVycG9kY2FzdC5pdC9pbmRleC54bWw">
+          <a href="{{ .Site.Params.podcast.google_podcast_link }}">
               <img src='/images/google_podcast.svg' style="width:100%; height: auto;">
           </a>
         </div>
 
         <div class="inline-block" >
-          <a href="https://open.spotify.com/show/3XmDzcZv4rCIx1VpWrbrkh">
+          <a href="{{ .Site.Params.podcast.spotify_link }}">
               <img src='/images/spotify.svg' style="width:100%; height: auto;">
           </a>
         </div>
-      </div>
-      
 
-  
-
-      
         
+        
+
+      </div>
+  
     </div>
 </div>
+
+  {{ else }}
+       <div class="float-child-left-title">
+          <h2>
+          
+            {{- .Title -}}
+          
+        </h2>
+
+
+      </div></br>
+</br></br>
+
+  {{ end }}
