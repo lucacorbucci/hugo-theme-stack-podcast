@@ -81,9 +81,11 @@
           </footer>
         {{- end -}}
         </div>
-
+       
+        {{ if eq .Params.type "episode" }}
         <audio class="js-player" style="--plyr-audio-controls-background: rgba(0, 0, 0, 0); --plyr-audio-control-color: #eb277a">
         <source src="{{ .Site.Params.podcast.url }}{{ .Params.podcast }}"/>
+        {{- end -}}
         </audio>
   </div>
   
