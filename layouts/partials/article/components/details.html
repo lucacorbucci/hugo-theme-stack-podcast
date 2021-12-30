@@ -1,154 +1,155 @@
 <script src="/js/plyr.js"></script>
- <script>
-      document.addEventListener('DOMContentLoaded', () => {
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
 
-          const controls = [
-              'rewind',
-              'play',
-              'fast-forward',
-              'progress',
-              'current-time',
-              'duration',
-          ];
+    const controls = [
+      'rewind',
+      'play',
+      'fast-forward',
+      'progress',
+      'current-time',
+      'duration',
+    ];
 
-          const player = Plyr.setup('.js-player', { controls })
-      });
-  </script>
+    const player = Plyr.setup('.js-player', { controls })
+  });
+</script>
 <link rel="stylesheet" href="/css/plyr.css" />
 <style>
+  .artwork>img {
+    width: 100%;
+    height: 100%;
+  }
 
-.artwork > img {
-  width: 100%;
-  height: 100%;
-}
+  .parent {
+    padding: 1rem;
+    margin-top: 10px;
+  }
 
-.parent {
-  padding: 1rem;
-  margin-top: 10px;
-}
-.child {
-  border: 1px solid indigo;
-  padding: 1rem;
-}
+  .child {
+    border: 1px solid indigo;
+    padding: 1rem;
+  }
 
-.audio_dx {
+  .audio_dx {
     style: margin-top:7%;
-}
+  }
 
-.float-child-left {
+  .float-child-left {
     width: 30%;
     float: left;
-}  
+  }
 
-.float-child-left-title {
+  .float-child-left-title {
     width: 30%;
     float: left;
     margin-left: 3%;
-}  
+  }
 
-.float-child-right {
+  .float-child-right {
     width: 70%;
     float: left;
     padding-left: 4%;
-}  
+  }
 
-.inline-block {
-   display: inline-block;
-}
+  .inline-block {
+    display: inline-block;
+  }
 
-}
-
+  }
 </style>
 
 
 {{ if .Params.podcast }}
 <div class="article-details">
-  <div >
+  <div>
 
-  <div class="float-child-left">
-    <a href="#" class="artwork">
-      <img src="{{ .Site.BaseURL }}artworks/{{.Params.artwork}}" alt="">
-    </a>
-  </div>
-  
- 
+    <div class="float-child-left">
+      <a href="#" class="artwork">
+        <img src="{{ .Site.BaseURL }}artworks/{{.Params.artwork}}" alt="">
+      </a>
+    </div>
 
 
-  <div class="float-child-right">
-    <div >
-          <h2 class="article-title" >
-          <a href="{{ .RelPermalink }}" >
+
+
+    <div class="float-child-right">
+      <div>
+        <h2 class="article-title">
+          <a href="{{ .RelPermalink }}">
             {{- .Title -}}
           </a>
         </h2>
-        </div>
-        
-        
-        
-        <div >
-        {{- if not .Date.IsZero -}}
-          <footer class="article-time">
-            {{ partial "helper/icon" "clock" }}
-            <time class="article-time--published">
-            {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
-            </time>
-          </footer>
-        {{- end -}}
-        </div>
-
-        <div >
-          {{ with .Params.description }}
-          <h3 class="article-subtitle " >
-            {{ . }}
-          </h3>
-        {{ end }}
-        </div>
-
-        <audio class="js-player" style="--plyr-audio-controls-background: rgba(0, 0, 0, 0); --plyr-audio-control-color: #eb277a">
-        <source src="{{ .Site.Params.podcast.url }}{{ .Params.podcast }}"/>
-        </audio>
-
-        <div class="inline-block">
-          <a href="{{ .Site.Params.podcast.telegram_group_link }}">
-              <img src='/images/telegram_group.svg' style="width:162px; height: 40px;">
-          </a>
-        </div>
-        <div class="inline-block">
-          <a href="{{ .Site.Params.podcast.apple_podcast_link }}">
-              <img src='/images/apple_podcast.svg' style="width:100%; height: auto; ">
-          </a>
-        </div>
-
-        <div class="inline-block">
-          <a href="{{ .Site.Params.podcast.google_podcast_link }}">
-              <img src='/images/google_podcast.svg' style="width:100%; height: auto;">
-          </a>
-        </div>
-
-        <div class="inline-block" >
-          <a href="{{ .Site.Params.podcast.spotify_link }}">
-              <img src='/images/spotify.svg' style="width:100%; height: auto;">
-          </a>
-        </div>
-
-        
-        
-
       </div>
-  
+
+      <div>
+        {{- if not .Date.IsZero -}}
+        <footer class="article-time">
+          {{ partial "helper/icon" "clock" }}
+          <time class="article-time--published">
+            {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+          </time>
+        </footer>
+        {{- end -}}
+      </div>
+
+      <div>
+        {{ with .Params.description }}
+        <h3 class="article-subtitle ">
+          {{ . }}
+        </h3>
+        {{ end }}
+      </div>
+
+      <audio class="js-player"
+        style="--plyr-audio-controls-background: rgba(0, 0, 0, 0); --plyr-audio-control-color: #eb277a">
+        <source src="{{ .Site.Params.podcast.url }}{{ .Params.podcast }}" />
+      </audio>
+
+      <div class="inline-block">
+        <a href="{{ .Site.Params.podcast.telegram_group_link }}">
+          <img src='/images/telegram_group.svg' style="width:162px; height: 40px;">
+        </a>
+      </div>
+      <div class="inline-block">
+        <a href="{{ .Site.Params.podcast.apple_podcast_link }}">
+          <img src='/images/apple_podcast.svg' style="width:100%; height: auto; ">
+        </a>
+      </div>
+
+      <div class="inline-block">
+        <a href="{{ .Site.Params.podcast.google_podcast_link }}">
+          <img src='/images/google_podcast.svg' style="width:100%; height: auto;">
+        </a>
+      </div>
+
+      <div class="inline-block">
+        <a href="{{ .Site.Params.podcast.spotify_link }}">
+          <img src='/images/spotify.svg' style="width:100%; height: auto;">
+        </a>
+      </div>
+
+
+
+
     </div>
+
+  </div>
 </div>
 
-  {{ else }}
-       <div class="float-child-left-title">
-          <h2>
-          
-            {{- .Title -}}
-          
-        </h2>
+{{ else }}
+<div class="float-child-right">
+  <div>
+    <h1>
+      <a href="{{ .RelPermalink }}">
+        {{- .Title -}}
+      </a>
+    </h1>
+  </div>
 
 
-      </div></br>
+
+</div></br>
 </br></br>
 
-  {{ end }}
+{{ end }}
